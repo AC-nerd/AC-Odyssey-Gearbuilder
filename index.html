@@ -1,4 +1,37 @@
-<link rel="stylesheet" href="style.css">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gear Builder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Gear Builder</h1>
+  <div id="gear-builder">
+    <h2>Slots:</h2>
+    <ul id="slots">
+      <li id="head-slot">
+        <label for="head-slot-input">Head:</label>
+        <input type="text" id="head-slot-input" placeholder="Enter gear name">
+      </li>
+      <li id="chest-slot">
+        <label for="chest-slot-input">Chest:</label>
+        <input type="text" id="chest-slot-input" placeholder="Enter gear name">
+      </li>
+      <!-- Add more slots here... -->
+    </ul>
+    <button id="add-gear-btn">Add Gear</button>
+    <button id="clear-gear-btn">Clear Gear</button>
+    <h2>Gear List:</h2>
+    <ul id="gear-list">
+      <!-- Gear list will be populated here -->
+    </ul>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+style.css
+
 #gear-builder {
   display: flex;
   flex-direction: column;
@@ -50,3 +83,41 @@
   background-color: #4CAF50;
   color: #fff;
 }
+script.js
+
+// Get the gear builder elements
+const gearBuilder = document.getElementById('gear-builder');
+const slots = document.getElementById('slots');
+const gearList = document.getElementById('gear-list');
+const addGearBtn = document.getElementById('add-gear-btn');
+const clearGearBtn = document.getElementById('clear-gear-btn');
+
+// Initialize gear list
+let gearListItems = [];
+
+// Add gear to the list
+function addGear(gearName) {
+  const gearItem = document.createElement('li');
+  gearItem.textContent = gearName;
+  gearList.appendChild(gearItem);
+  gearListItems.push(gearName);
+}
+
+// Clear gear list
+function clearGear() {
+  gearListItems = [];
+  gearList.innerHTML = '';
+}
+
+// Add gear event listener
+addGearBtn.addEventListener('click', () => {
+  const gearInput = document.querySelector('#head-slot-input');
+  const gearName = gearInput.value;
+  addGear(gearName);
+  gearInput.value = '';
+});
+
+// Clear gear event listener
+clearGearBtn.addEventListener('click', () => {
+  clearGear();
+})
