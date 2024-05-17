@@ -1,1 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gear Builder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Gear Builder</h1>
+  <div id="gear-builder">
+    <h2>Slots:</h2>
+    <ul id="slots">
+      <li id="head-slot">
+        <label for="head-slot-input">Head:</label>
+        <input type="text" id="head-slot-input" placeholder="Enter gear name">
+      </li>
+      <li id="chest-slot">
+        <label for="chest-slot-input">Chest:</label>
+        <input type="text" id="chest-slot-input" placeholder="Enter gear name">
+      </li>
+      <!-- Add more slots here... -->
+    </ul>
+    <button id="add-gear-btn">Add Gear</button>
+    <button id="clear-gear-btn">Clear Gear</button>
+    <h2>Gear List:</h2>
+    <ul id="gear-list">
+      <!-- Gear list will be populated here -->
+    </ul>
+  </div>
 
+  <script src="script.js"></script>
+</body>
+</html>
